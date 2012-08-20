@@ -64,7 +64,11 @@ class iptables (
   $real_output_policy = $output_policy ? {
     'drop'    => 'drop',
     'DROP'    => 'drop',
-    default   => 'accept',
+    'accept'  => 'accept',
+    'ACCEPT'  => 'accept',
+    'none'    => 'no',
+    'no'      => 'no',
+    default   => 'no',
   }
  
   $real_log = $log ? {
