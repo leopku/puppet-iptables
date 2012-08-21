@@ -23,6 +23,9 @@ class iptables::params  {
 # Define what to do with output packets 
   $output_policy = 'ACCEPT'
 
+# Define what to do with forward packets
+  $forward_policy = 'ACCEPT'
+  
 ## Define what packets to log
   $log = 'drop'
 

@@ -1,10 +1,6 @@
-<% if scope.lookupvar('iptables::real_output_policy') != 'no' -%>
+<% if scope.lookupvar('iptables::real_output_policy') != "no" -%>
 <% if scope.lookupvar('iptables::real_log') == "drop" -%>
 -A OUTPUT -j LOG --log-level <%= scope.lookupvar('iptables::log_level') %> --log-prefix "OUTPUT DROP: "
 <% end -%>
-<% if scope.lookupvar('iptables::real_output_policy').upcase != scope.lookupvar('iptables::real_block_policy') -%>
--A OUTPUT -j <%= scope.lookupvar('iptables::real_output_policy') %>
-<% else -%>
 -A OUTPUT -j <%= scope.lookupvar('iptables::real_block_policy') %>
-<% end -%>
 <% end -%>

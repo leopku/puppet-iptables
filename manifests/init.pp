@@ -15,6 +15,7 @@ class iptables (
   $block_policy        = params_lookup( 'block_policy' ),
   $icmp_policy         = params_lookup( 'icmp_policy' ),
   $output_policy       = params_lookup( 'output_policy' ),
+  $forward_policy       = params_lookup( 'forward_policy' ),
   $broadcast_policy    = params_lookup( 'broadcast_policy' ),
   $multicast_policy    = params_lookup( 'multicast_policy' ),
   $log                 = params_lookup( 'log' ),
@@ -64,11 +65,15 @@ class iptables (
   $real_output_policy = $output_policy ? {
     'drop'    => 'drop',
     'DROP'    => 'drop',
-    'accept'  => 'accept',
-    'ACCEPT'  => 'accept',
-    'none'    => 'no',
+    'no'      => 'no'
+    default   => 'accept',
+  }
+
+  $real_forward_policy = $forward_policy ? {
+    'drop'    => 'drop',
+    'DROP'    => 'drop',
     'no'      => 'no',
-    default   => 'no',
+    default   => 'accept',
   }
  
   $real_log = $log ? {
