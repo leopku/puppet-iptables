@@ -65,7 +65,7 @@ class iptables (
   $real_output_policy = $output_policy ? {
     'drop'    => 'drop',
     'DROP'    => 'drop',
-    'no'      => 'no'
+    'no'      => 'no',
     default   => 'accept',
   }
 
