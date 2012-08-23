@@ -95,7 +95,6 @@ class iptables::concat {
     content => template('iptables/concat/filter_footer'),
     order   => 40,
     notify  => Service['iptables'],
-    noop    => true,
   }
 
 
