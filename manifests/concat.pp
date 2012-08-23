@@ -54,40 +54,40 @@ class iptables::concat {
   }
 
   # The output chain header with sane defaults
-  concat::fragment{ 'iptables_filter_output_header':
-    target  => $iptables::config_file,
-    content => template('iptables/concat/filter_output_header'),
-    order   => 20,
-    notify  => Service['iptables'],
-    noop    => true,
-  }
+  #concat::fragment{ 'iptables_filter_output_header':
+  #  target  => $iptables::config_file,
+  #  content => template('iptables/concat/filter_output_header'),
+  #  order   => 20,
+  #  notify  => Service['iptables'],
+  #  noop    => true,
+  #}
 
   # The output chain footer with logging and block_policy
-  concat::fragment{ 'iptables_filter_output_footer':
-    target  => $iptables::config_file,
-    content => template('iptables/concat/filter_output_footer'),
-    order   => 29,
-    notify  => Service['iptables'],
-    noop    => true,
-  }
+  #concat::fragment{ 'iptables_filter_output_footer':
+  #  target  => $iptables::config_file,
+  #  content => template('iptables/concat/filter_output_footer'),
+  #  order   => 29,
+  #  notify  => Service['iptables'],
+  #  noop    => true,
+  #}
 
   # The forward chain header with sane defaults
-  concat::fragment{ 'iptables_filter_forward_header':
-    target  => $iptables::config_file,
-    content => template('iptables/concat/filter_forward_header'),
-    order   => 30,
-    notify  => Service['iptables'],
-    noop    => true,
-  }
+  #concat::fragment{ 'iptables_filter_forward_header':
+  #  target  => $iptables::config_file,
+  #  content => template('iptables/concat/filter_forward_header'),
+  #  order   => 30,
+  #  notify  => Service['iptables'],
+  #  noop    => true,
+  #}
 
   # The forward chain footer with logging and block_policy
-  concat::fragment{ 'iptables_filter_forward_footer':
-    target  => $iptables::config_file,
-    content => template('iptables/concat/filter_forward_footer'),
-    order   => 39,
-    notify  => Service['iptables'],
-    noop    => true,
-  }
+  #concat::fragment{ 'iptables_filter_forward_footer':
+  #  target  => $iptables::config_file,
+  #  content => template('iptables/concat/filter_forward_footer'),
+  #  order   => 39,
+  #  notify  => Service['iptables'],
+  #  noop    => true,
+  #}
 
   # The FILTER table footer (COMMIT)
   concat::fragment{ 'iptables_filter_footer':
