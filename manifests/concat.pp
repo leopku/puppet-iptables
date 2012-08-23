@@ -59,6 +59,7 @@ class iptables::concat {
     content => template('iptables/concat/filter_output_header'),
     order   => 20,
     notify  => Service['iptables'],
+    noop    => true,
   }
 
   # The output chain footer with logging and block_policy
@@ -67,6 +68,7 @@ class iptables::concat {
     content => template('iptables/concat/filter_output_footer'),
     order   => 29,
     notify  => Service['iptables'],
+    noop    => true,
   }
 
   # The forward chain header with sane defaults
@@ -75,6 +77,7 @@ class iptables::concat {
     content => template('iptables/concat/filter_forward_header'),
     order   => 30,
     notify  => Service['iptables'],
+    noop    => true,
   }
 
   # The forward chain footer with logging and block_policy
@@ -83,6 +86,7 @@ class iptables::concat {
     content => template('iptables/concat/filter_forward_footer'),
     order   => 39,
     notify  => Service['iptables'],
+    noop    => true,
   }
 
   # The FILTER table footer (COMMIT)
@@ -91,6 +95,7 @@ class iptables::concat {
     content => template('iptables/concat/filter_footer'),
     order   => 40,
     notify  => Service['iptables'],
+    noop    => true,
   }
 
 
